@@ -9,3 +9,15 @@
     name: text
   - source: header
     name: room
+
+- id: notif2
+  execute-command: pwsh  # Or 'powershell' depending on container
+  command-working-directory: /home/ki6bjv/bot
+  pass-arguments-to-command:
+    - source: string
+      name: ./PushcutNotif.ps1
+    - source: header
+      name: text
+    - source: header
+      name: room
+  include-command-output-in-response: true
