@@ -1,0 +1,30 @@
+name: Publish Clean Copy
+
+on:
+  workflow_dispatch:  # Triggered manually from the GitHub UI
+
+jobs:
+  clean-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest commit only
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1  # only the latest commit
+
+      - name: Remove .git history
+        run: |
+          rm -rf .git
+          git init
+          git config user.name "GitHub Action Bot"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Initial clean commit"
+
+      - name: Push to public clean repo
+        env:
+          PAT: ${{ secrets.TARGET_PAT }}
+        run: |
+          git remote add origin https://x-access-token:${PAT}@github.com/ki6bjv/publicBot.git
+          git branch -M main
+          git push -f origin main

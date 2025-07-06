@@ -1,0 +1,11 @@
+- id: test
+  response-message: "This is a postive test of the hook system"
+
+- id: notif
+  execute-command: /home/ki6bjv/bot/PostMatrix.ps1 # This path is where bot is installed in the container
+  command-working-directory: /home/ki6bjv/
+  pass-arguments-to-command:
+  - source: header
+    name: text
+  - source: header
+    name: room
