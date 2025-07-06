@@ -1,34 +1,51 @@
-# macOS system files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# === Config files ===
+bot.config
+bot.config.*
+!example.bot.config.txt
 
-# Security and configuration files
-*.key
-*.pem
-*.crt
-*.config
-
-# Additional security files (recommended)
-*.p12
-*.pfx
-*.cer
-*.der
-*.csr
-*.jks
-*.keystore
-*.truststore
-
-# Environment and config files
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 .env
-.env.local
-.env.*.local
-config.json
-config.yml
-config.yaml
-secrets.json
+.env.*
 
+# === OS files ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# === Editor/IDE ===
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.code-workspace
+
+# === Logs and temp ===
+*.log
+*.bak
+*.tmp
+*.swp
+*.pid
+*.seed
+*.orig
+
+# === Git ===
+.git/
+*.rej
+*.patch
+
+# === Misc ===
+coverage/
+dist/
+build/
+tmp/
+out/
