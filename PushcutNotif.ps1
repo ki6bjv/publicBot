@@ -1,11 +1,8 @@
 #!/usr/bin/env pwsh
 
 param (
-    [Parameter(Mandatory = $true)]
-    [string]$room,
-
-    [Parameter(Mandatory = $true)]
-    [string]$text
+    [Parameter(Mandatory=$true)][string]$message,
+    [Parameter(Mandatory=$true)][string]$room
 )
 
 . "$PSScriptRoot\Env.ps1"
@@ -16,7 +13,7 @@ $notificationName = $room  # Change this to match your Pushcut notification
 
 
 $body = @{
-    text = "$text"
+    text = "$message"
 } | ConvertTo-Json -Depth 2
 
 $response = Invoke-RestMethod `
