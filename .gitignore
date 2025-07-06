@@ -1,7 +1,7 @@
 # === Config files ===
-bot.config
-bot.config.*
-!example.bot.config.txt
+Env.ps1
+Env.*.ps1
+!example.Env.ps1
 
 # === Node.js ===
 node_modules/
@@ -12,14 +12,14 @@ pnpm-debug.log*
 .env
 .env.*
 
-# === OS files ===
+# === OS junk ===
 .DS_Store
 Thumbs.db
 ehthumbs.db
 Icon?
 Desktop.ini
 
-# === Editor/IDE ===
+# === Editor/IDE configs ===
 .vscode/
 .idea/
 *.suo
@@ -38,12 +38,11 @@ Desktop.ini
 *.seed
 *.orig
 
-# === Git ===
-.git/
+# === Git artifacts ===
 *.rej
 *.patch
 
-# === Misc ===
+# === Build artifacts ===
 coverage/
 dist/
 build/
