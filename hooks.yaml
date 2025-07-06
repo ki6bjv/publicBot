@@ -1,17 +1,20 @@
 - id: test
-  response-message: "This is a postive test of the hook system"
+  response-message: "This is a positive test of the hook system"
 
 - id: notif
-  execute-command: /home/ki6bjv/bot/PostMatrix.ps1 # This path is where bot is installed in the container
-  command-working-directory: /home/ki6bjv/
+  execute-command: pwsh
+  command-working-directory: /home/ki6bjv
   pass-arguments-to-command:
-  - source: header
-    name: text
-  - source: header
-    name: room
+    - source: string
+      name: ./PostMatrix.ps1
+    - source: header
+      name: text
+    - source: header
+      name: room
+  include-command-output-in-response: true
 
-- id: notif2
-  execute-command: pwsh  # Or 'powershell' depending on container
+- id: pushcut
+  execute-command: pwsh
   command-working-directory: /home/ki6bjv/bot
   pass-arguments-to-command:
     - source: string
