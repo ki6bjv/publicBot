@@ -1,18 +1,20 @@
 param (
-    [string]$text,
-    [string]$room
+    [Parameter(Mandatory = $true)]
+    [string]$room,
+
+    [Parameter(Mandatory = $true)]
+    [string]$text
 )
 
-$apiKey = $env:PUSHCUT_API_KEY
-$notificationName = "MacAlert"  # Change this to match your Pushcut notification
+. "$PSScriptRoot\Env.ps1"
 
-if (-not $apiKey) {
-    Write-Error "PUSHCUT_API_KEY is not set in environment variables."
-    exit 1
-}
+
+$apiKey = $pushCutKey
+$notificationName = $room  # Change this to match your Pushcut notification
+
 
 $body = @{
-    text = "$text (Room: $room)"
+    text = "$text"
 } | ConvertTo-Json -Depth 2
 
 $response = Invoke-RestMethod `
