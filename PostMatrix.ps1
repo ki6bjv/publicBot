@@ -1,14 +1,11 @@
 #!/usr/bin/env pwsh
 
-./bot.config
-
 param (
     [Parameter(Mandatory=$true)][string]$message,
     [Parameter(Mandatory=$true)][string]$room
 )
 
-#$message = "inline message test"
-#$room = "notify"
+. "$PSScriptRoot\Env.ps1"
 
 $pw_plain = $matrixkey
 
